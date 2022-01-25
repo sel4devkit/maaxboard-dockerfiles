@@ -17,6 +17,11 @@ test -d "$DIR" || DIR=$PWD
 # Extras for the MaaXBoard build environment, e.g. to build u-boot
 as_root apt-get install -y --no-install-recommends \
     gcc-aarch64-linux-gnu \
+    g++-aarch64-linux-gnu \
+    gcc-arm-linux-gnueabihf \
+    g++-arm-linux-gnueabihf \
+    gcc-arm-linux-gnueabi \
+    g++-arm-linux-gnueabi \
     sudo \
     cowsay \
     bison \
@@ -24,13 +29,7 @@ as_root apt-get install -y --no-install-recommends \
     # end of list
 
 # Remove tools and architectures not required by the MaaXBoard. This
-# significantly reduces the size of the resulting Docker image.
+# reduces the size of the resulting Docker image.
 as_root apt-get remove -y \
-    g++-10-arm-linux-gnueabi \
-    g++-10-arm-linux-gnueabihf \
-    gcc-10-arm-linux-gnueabi \
-    gcc-10-arm-linux-gnueabihf \
     gcc-riscv64-unknown-elf \
     # end of list
-as_root dpkg --remove-architecture armhf
-as_root dpkg --remove-architecture armel
