@@ -45,4 +45,4 @@ make -f MaaXBoard_Makefile push
 
 ## Released images on Github
 
-"Known working" images are pushed to the [seL4 developer kit](https://github.com/sel4devkit) Github organisation. Images with the `:latest` tag are considered to be "known working".
+"Known working" images are pushed to the seL4 developer kit Github organisation, see [here](https://github.com/orgs/sel4devkit/packages/container/package/maaxboard). Images with the `:latest` tag are considered to be "known working".
