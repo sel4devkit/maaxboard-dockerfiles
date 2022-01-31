@@ -39,7 +39,7 @@ make -f MaaXBoard_Makefile run HOST_DIR=/scratch/sel4_stuff  # as an example
 
 To push the generated build environment to the seL4 developer kit Github area (note, requires this elevated privileges):
 
-```
+```bash
 make -f MaaXBoard_Makefile push
 ```
 
