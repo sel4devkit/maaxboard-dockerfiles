@@ -28,6 +28,7 @@ RUN echo ipv4 >> ~/.curlrc \
     ## Run the unmodified seL4 install scripts
     && /bin/bash "/tmp/base_tools.sh" \
     && /bin/bash "/tmp/sel4.sh" \
+    && /bin/bash "/tmp/camkes.sh" \
     ## Run the extras script specific to the MaaXBoard
     && /bin/bash "/tmp/maaxboard_extras.sh" \
     ## Clean up
