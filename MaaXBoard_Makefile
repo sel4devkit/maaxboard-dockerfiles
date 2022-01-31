@@ -1,0 +1,62 @@
+#
+# SPDX-License-Identifier: BSD-2-Clause
+#
+
+# Location to store and load images from
+DOCKERHUB ?= ghcr.io/sel4devkit
+
+# Force amd64 images regardless of host architecture
+DOCKER_EXPORTS ?= DOCKER_DEFAULT_PLATFORM=linux/amd64
+
+# Define the base image to use
+BASE_IMG ?= debian:bullseye
+
+# Core images
+MAAXBAORD_IMG ?= maaxboard
+
+# Username to use for MaaXBoard user image
+USERNAME ?= dev-user
+
+# Directory from local machine to host within the container
+HOST_DIR ?= $(shell pwd)
+
+.PHONY: all
+all: build run
+
+.PHONY: build
+build:
+	$(DOCKER_EXPORTS) docker build \
+		--force-rm \
+		--build-arg BASE_IMG=$(BASE_IMG) \
+		--build-arg USERNAME=$(USERNAME) \
+		-f dockerfiles/maaxboard.Dockerfile \
+		-t $(MAAXBAORD_IMG) \
+		.
+	docker tag \
+		$(MAAXBAORD_IMG):latest \
+		$(DOCKERHUB)/$(MAAXBAORD_IMG):latest
+
+.PHONY: run
+run:
+	docker run \
+		--interactive \
+		--tty \
+		--hostname maaxboard \
+		--rm \
+		-v $(HOST_DIR):/host:z \
+		$(DOCKERHUB)/$(MAAXBAORD_IMG):latest
+
+.PHONY: push
+push:
+	docker push \
+		$(DOCKERHUB)/$(MAAXBAORD_IMG):latest
+
+.PHONY: pull
+pull:
+	docker pull \
+		$(DOCKERHUB)/$(MAAXBAORD_IMG):latest
+
+.PHONY: clean
+clean:
+	-docker rmi $(MAAXBAORD_IMG)
+	-docker rmi $(DOCKERHUB)/$(MAAXBAORD_IMG)
