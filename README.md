@@ -11,7 +11,7 @@ This repository holds tooling required to generate and manage the Docker image u
 This is a fork of the tooling created by the [seL4 Foundation](https://github.com/seL4) for the generation of Docker images (see [here](https://github.com/seL4/seL4-CAmkES-L4v-dockerfiles)). The changes within this fork:
 
 1. Do not change any of the files from the source repository, thereby allowing updates from the source repository to be incorporated with minimal effort.
-2. Add MaaXBoard specific configiuration in the form a new Makefile, a new Dockerfile for the MaaXBoard image and a script to customise the tooling available within the image.
+2. Add MaaXBoard specific configuration in the form a new Makefile, a new Dockerfile for the MaaXBoard image and a script to customise the tooling available within the image.
 
 ## Requirements
 
