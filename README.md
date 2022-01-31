@@ -33,7 +33,7 @@ make -f MaaXBoard_Makefile build
 
 To run the generated build environment mapping a particular directory to the /host dir in the container:
 
-```
+```bash
 make -f MaaXBoard_Makefile run HOST_DIR=/scratch/sel4_stuff  # as an example
 ```
 
