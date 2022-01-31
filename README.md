@@ -24,7 +24,6 @@ It is recommended you add yourself to the docker group, so you can run docker co
 
 To create a build environment for seL4 development targeting the Avnet MaaXBoard, run:
 
-To generate a running build environment for sel4 and camkes, run:
 
 ```
 git clone https://github.com/sel4devkit/maaxboard-dockerfiles
