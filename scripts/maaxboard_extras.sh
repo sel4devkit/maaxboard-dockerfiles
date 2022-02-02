@@ -51,3 +51,10 @@ echo 'en_GB.UTF-8 UTF-8' | as_root tee /etc/locale.gen > /dev/null
 as_root dpkg-reconfigure --frontend=noninteractive locales
 echo "LANG=en_GB.UTF-8" | as_root tee -a /etc/default/locale > /dev/null
 echo "export LANG=en_GB.UTF-8" >> "$HOME_DIR/.bashrc"
+
+# Checkout cached versions of seL4 build artefacts and set up environment
+# variable to use them.
+as_root mkdir $HOME_DIR/sel4_cache_dir
+as_root git clone https://github.com/sel4devkit/sel4_cached_artefacts $HOME_DIR/sel4_cache_dir
+as_root chown -R $USERNAME:sudo $HOME_DIR/sel4_cache_dir
+echo "export SEL4_CACHE_DIR=$HOME_DIR/sel4_cache_dir" >> "$HOME_DIR/.bashrc"

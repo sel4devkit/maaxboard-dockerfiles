@@ -26,6 +26,7 @@ RUN echo ipv4 >> ~/.curlrc \
     && export REPO_DIR=/usr/bin \
     && export SCRIPTS_DIR=/home/$USERNAME/bin \
     && export HOME_DIR=/home/$USERNAME \
+    && export USERNAME=$USERNAME \
     ## Run the unmodified seL4 install scripts
     && /bin/bash "/tmp/base_tools.sh" \
     && /bin/bash "/tmp/sel4.sh" \
