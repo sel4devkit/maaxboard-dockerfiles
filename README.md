@@ -4,6 +4,9 @@
 
 # Dockerfiles for seL4 development with the Avnet MaaXBoard
 
+## Licence
+This work is © Crown Copyright NCSC, released under a 2-Clause BSD licence.
+
 ## Background
 
 This repository holds tooling required to generate and manage the Docker image used by the [seL4 developer kit](https://github.com/sel4devkit) for the Avnet MaaXBoard.
